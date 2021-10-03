@@ -6,6 +6,10 @@
     /*Referencia a primeira tag html*/
 
     --dark-blue: #363f5f;
+    --green: #49AA26;
+    --light-green: #3dd705;
+    --red: #e92929;
+
 }
 * {
 /*Seletor Universal*/
@@ -15,11 +19,28 @@
    box-sizing: border-box; /*Medida da caixa: Context-Box(medida padrão)*/
 }
 
+html {
+    font-size: 93.75%; /* 15px = porque queremos trabalhar com a responsabilidade dele = padrão mobile */ 
+}
+
 body{
     background: #f0f2f5;
     font-family: 'Poppins', sans-serif;
 
 }
+/*Mantendo visivel apenas para os leitores de tela*/
+.sr-only {
+    position: absolute; /*Mudando a 'caixa' uma pra frente da putra. O card subiu e o h2 ficou na frente*/
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 .contanier {
     /*viewport = é tudo que a gente vê e o w = width*/
     width: min(90vw, 800px); /*encutar caminhos = vai pegar sempre o menor*/
@@ -32,6 +53,58 @@ h2{
     color: #366f5f;
 
     font-weight: normal;
+}
+/* ======================= Links & Buttons ======================= */
+a {
+    color: var(--green);
+    text-decoration: none; /*retira o underline*/
+}
+
+a:hover {
+    color: var(--light-green);
+}
+
+.button.new {
+    display: inline-block; /*inline consegue fazer com que o mouse funcione apenas dentro do link e adiciona o block para pegar o margin*/
+    margin-bottom: .8rem; /*display inline não pega margin-botton*/
+}
+
+button {
+    width: 100%;
+    height: 50px;
+
+    border: none;
+
+    background: var(--green);
+    color: white;
+
+    padding: 0;
+
+    border-radius: 0.25rem;
+
+    cursor: pointer;
+}
+
+button:hover {
+    color: var(--light-green);
+}
+
+.button.cancel {
+    color: var(--red);
+    border: 2px var(--red) solid;
+    border-radius: 0.25rem;
+
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0.6;
+}
+
+.button.cancel:hover{
+    opacity: 1;
 }
 /* ======================= Header ======================= */
 header {
@@ -66,6 +139,11 @@ header {
 .card h3{
     font-weight: normal;
     font-size: 1rem;
+
+    display: flex; /*comportamento padrão: um elemento embaixo do outro = inline, span e img tem display inline*/
+                   /*retira o elemento padrão que é o debaixo do outro*/
+    align-items: center;
+    justify-content: space-between; /*espaço entre os elementos*/
 }
 
 .card p {
@@ -77,10 +155,14 @@ header {
 }
 
 .card.total {
-    background: #49AA26;
+    background: var(--green);
     color: white;
 }
 /* ======================= Table ======================= */
+#transaction {
+    display: block;
+    overflow-x: auto; /*o que está trasnbordando*/
+}
 #data-table {
     width: 100%; /*Pegar todo o espaço do container(caixa) que está recebendo*/
     border-spacing: 0 0.5rem; /*Retirando as bordas da tebela que vem como padrão*/
@@ -92,6 +174,11 @@ header {
 table thead tr th:first-child, 
 table tbody tr td:first-child{
     border-radius: 0.25rem 0 0 0.25rem;
+}
+
+table thead tr th:last-child, 
+table tbody tr td:last-child{
+    border-radius: 0 0.25rem 0.25rem 0;
 }
 
 table th{
@@ -125,6 +212,76 @@ td.income {
 td.expense {
     color: #e92929
 }
+/* ======================= Modal ======================= */
+/*caixa transparente = modal-overlay*/
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+    top: 0;
+
+    /*colocando a caixinha bem no meio*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*caixa branca = modal*/
+.modal {
+    background: #f0f2f5;
+    padding: 2.4rem;
+    width: 90%; /*adpatando as larguras para mobile*/
+    max-width: 500px;
+    position: relative;
+    z-index: 999;
+}
+/*caixa branca com o conteudo = moda-content"*/
+
+/* ======================= Form ======================= */
+#form {
+    max-width: 500px;
+}
+
+#form h2 {
+    margin-top: 0;
+}
+
+input {
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.8rem;
+    width: 100%;
+}
+
+.input-group {
+    margin-top: 0.8rem;
+}
+
+.input-group small {
+    opacity: 0.4;
+}
+
+.input-group.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group.actions .button, 
+.input-group.actions button {
+    width: 48%;
+}
 /* ======================= Footer ======================= */
 footer {
     text-align: center;
@@ -132,4 +289,18 @@ footer {
     color: var(--dark-blue);
 
     opacity: 0.6;
+}
+
+/* ======================= Responsive ======================= */
+@media (min-width: 800px) {
+    html {
+        font-size: 87.5%; /* 14px */
+    }
+
+    #balance {
+        display: grid; /*flex = padrão um do lado do outro*/
+                      /*grid = pode usar horizontal ou vertical*/
+        grid-template-columns: 2fr 2fr 2fr; /*fração das colunas*/ /*repeat(3, 1fr)*/
+        gap: 2rem; /*espaço entre as colunas*/
+    }
 }
