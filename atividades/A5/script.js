@@ -23,10 +23,6 @@ function findCEP(cep) {
     return fetch(`https://viacep.com.br/ws/${cep}/json/`); /*traz conteudo de uma determinada URL*/
 }
 
-function stateCovid(uf) {
-    return fetch(`https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/${uf}`);
-}
-
 const form = document.querySelector('#cep-form');
 form.addEventListener('submit', el => {
     el.preventDefault();
