@@ -1,2 +1,2 @@
 # DW2A4
-Repositório para a Atividade Assíncrona de Desenvolvimento Web II (IFSP) - Professor Johnata Souza Santicioli
+Repositório para as Atividades Assíncronas de Desenvolvimento Web II (IFSP) - Professor Johnata Souza Santicioli
