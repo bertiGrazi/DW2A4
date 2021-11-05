@@ -3,9 +3,9 @@ var app = new Vue({
     data: {
         age: 17,
         list: [
-            {name: 'Isadora', age: 25},
-            {name: 'Grazi', age: 18},
-            {name: 'Carlos', age: 60},
+            {name: 'Fernanda', age: 25},
+            {name: 'GrAna Claudia', age: 18},
+            {name: 'Carlos', age: 30},
         ]
     },
     /*Chamar quando inicia a página */

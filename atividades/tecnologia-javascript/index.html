@@ -12,16 +12,15 @@
             <ul>
                 <li>Black Label</li>
                 <li>Chivas</li>
-            </ul>    
+            </ul>   
+            <ul>
+              <li v-for="user in adultUsers">
+                  {{adultUsers}}
+              </li>
+          </ul> 
         </template>
-
-        <ul>
-            <li v-for="user in adultUsers">
-                {{adultUsers}}
-            </li>
-        </ul>
       </div>
-  
+      
     <script src="script.js"></script>
   </body>
 </html>
