@@ -1,5 +1,6 @@
 <template>
 <div class="hello">
+    <Pizza />
     <h1>{{ msg }}</h1>
     <p>
         For a guide and recipes on how to configure / customize this project,<br>
@@ -19,8 +20,11 @@
         <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
         <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
     </ul>
+    <Smothie />
+    
     <h3>Ecosystem</h3>
     <ul>
+        Oi Brasil
         <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
         <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
         <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
@@ -31,17 +35,33 @@
 </template>
 
 <script>
+
+import Smothie from '../assets/icons/smothie.svg';
+import Pizza from '../assets/icons/pizza.svg';
+
 export default {
     name: 'HelloWorld',
+    components: {
+        Smothie,
+        Pizza
+    },
     props: {
         msg: String
     }
 }
 </script>
 
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped lang="less">
+
+svg {
+    path {
+        fill: red;
+    }
+}
+
 h3 {
     margin: 40px 0 0;
 }
@@ -59,6 +79,5 @@ li {
     color: @pink;
     }
 }
-
 
 </style>
