@@ -104,5 +104,20 @@ export default {
       }
     }
   }
+
+  @media @smartphones {
+     width: 100%;
+     height: fit-content;
+
+     ul {
+        display: flex; /*Um do ladinho do outro*/
+        margin: 20px;
+        overflow: scroll;  /*overflow é o nosso scrool*/
+     }
+
+     li {
+         min-width: 78px;         
+     }
+  }
 }
 </style>
