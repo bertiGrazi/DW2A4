@@ -7,20 +7,20 @@
 
 <script>
 // @ is an alias to /src
-import CategoryMenu from '@/components/CategoryMenu.vue'
-import ItemList from '@/components/ItemList.vue'
+import CategoryMenu from "@/components/CategoryMenu.vue";
+import ItemList from "@/components/ItemList.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     CategoryMenu,
-    ItemList
-  }
-}
+    ItemList,
+  },
+};
 </script>
 
 <style scoped lang="less">
-  .home {
-    display: flex;
-  }
+.home {
+  display: flex;
+}
 </style>
