@@ -37,16 +37,19 @@ export default {
         { label: "Bebidas", icon: "Drinks", id: "drinks" },
         { label: "Doces", icon: "Deserts", id: "deserts" },
         { label: "Combos", icon: "Combo", id: "combo" },
-        { label: "Burguers", icon: "Burguer", id: "burguer" },
+        { label: "Burguers", icon: "Burguer", id: "burguers" },
       ],
 
-      selectedCategory: "pizza",
+      selectedCategory: "",
     };
+  },
+  mounted() {
+    this.onCategoryClick('pizza');
   },
   methods: {
     onCategoryClick(id) {
       this.selectedCategory = id;
-     this.$store.dispatch('changeCategory', id);
+      this.$store.dispatch("changeCategory", id);
     },
     isActive(id) {
       return this.selectedCategory === id;
@@ -107,18 +110,18 @@ export default {
   }
 
   @media @smartphones {
-     width: 100%;
-     height: fit-content;
+    width: 100%;
+    height: fit-content;
 
-     ul {
-        display: flex; /*Um do ladinho do outro*/
-        margin: 20px;
-        overflow: scroll;  /*overflow é o nosso scrool*/
-     }
+    ul {
+      display: flex; /*Um do ladinho do outro*/
+      margin: 20px;
+      overflow: scroll; /*overflow é o nosso scrool*/
+    }
 
-     li {
-         min-width: 78px;         
-     }
+    li {
+      min-width: 78px;
+    }
   }
 }
 </style>
