@@ -26,8 +26,13 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-  .items-list {
-    margin: 50px;
-    display: flex;
+.items-list {
+  margin: 50px;
+  display: flex;
+
+  @media @smartphones {
+    flex-wrap: wrap;
+    margin: 20px;
   }
+}
 </style>
