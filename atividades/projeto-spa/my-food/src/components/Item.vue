@@ -2,7 +2,7 @@
   <div class="item">
     <div class="container">
       <div class="item--tag" v-if="item.offer">Ofertas</div>
-      <img class="item--img" src="../assets/images/0001.png" alt="hamburgue" />
+      <img class="item--img" :src="imagePath" alt="" />
     </div>
 
     <div class="content">
@@ -27,6 +27,14 @@ export default {
     /*Recebe info do item pai */
     item: {},
   },
+  computed: {
+    seletectedCategory() {
+      return this.$store.state.seletectedCategory;
+    },
+    imagePath() {
+      return require(`../assets/images/${this.seletectedCategory}/${this.item.id}.png`);
+    },
+  },
 };
 </script>
 
@@ -42,9 +50,8 @@ export default {
 
   &--img {
     display: block;
-    margin: 30px auto 0px;
-    width: 120px;
-    height: 90px;
+    margin: auto;
+    width: 90%;
   }
   &--tag {
     position: absolute;
