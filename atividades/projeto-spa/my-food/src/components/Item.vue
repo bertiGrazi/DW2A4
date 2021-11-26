@@ -47,6 +47,8 @@ export default {
   position: relative;
   margin: 20px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 
   &--img {
     display: block;
@@ -68,7 +70,7 @@ export default {
   &--name {
     font-weight: 600;
     font-size: 18px;
-    margin: 8px auto;
+    margin: 0;
   }
 
   &--description {
@@ -85,23 +87,32 @@ export default {
     margin: 8px auto;
   }
 
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
   @media @smartphones {
     width: 100%;
     height: fit-content;
     border: 1px solid @light-grey;
     display: flex;
+    flex-direction: row;
     margin-right: 15px;
-    padding: 5px 10px;
+    padding: 10px 20px;
 
     &--img {
-      height: 80px;
+      width: 86px;
       order: 0;
       margin: 0 0 10px 0;
     }
 
     &--price {
       text-align: right;
-      margin: 0 auto;
+      margin: 5px 0 0 auto;
     }
 
     &--tag {
@@ -116,6 +127,10 @@ export default {
       align-items: center;
       justify-content: center;
       margin-right: 10px;
+    }
+
+    .content {
+      flex-grow: 1;
     }
   }
 }
