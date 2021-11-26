@@ -59,7 +59,8 @@ export default {
 
   @media @smartphones {
     flex-wrap: wrap;
-    margin: 20px;
+    margin: 0px;
+    padding: 20px;
   }
 }
 </style>
