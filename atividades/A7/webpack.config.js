@@ -1,9 +1,11 @@
 const path = require("path");
 const HtmlWebpPlugin = require('html-webpack-plugin')
 
+const isDevelopent = process.env.NODE_ENV !== 'production'
+
 module.exports = {
-  mode: 'development',
-  devtool: 'eval-source-map',
+  mode: isDevelopent ? 'development' : 'production',
+  devtool: isDevelopent ? 'eval-source-map' : 'source-map',
   entry: path.resolve(__dirname, "src", "index.jsx"),
   output: {
     /* entry: 'src/index.jsx' /*Indica o arquivo inical que vai começar a nossa aplicação*/
