@@ -1,5 +1,6 @@
-const path = require("path");
+const path = require("path")
 const HtmlWebpPlugin = require('html-webpack-plugin')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const isDevelopent = process.env.NODE_ENV !== 'production'
 
@@ -16,13 +17,15 @@ module.exports = {
     extensions: [".js", ".jsx"],
   },
   devServer: {
-    static: path.resolve(__dirname, 'public')
+    static: path.resolve(__dirname, 'public'),
+    hot: true
   },
   plugins: [
+    isDevelopent && new ReactRefreshWebpackPlugin(),
     new HtmlWebpPlugin({
       template: path.resolve(__dirname, "public", "index.html")
     })
-  ],
+  ].filter(Boolean),
   module: {
       rules: [
           {
