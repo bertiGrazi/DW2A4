@@ -1,6 +1,7 @@
 const path = require("path");
 
 module.exports = {
+  mode: 'development',
   entry: path.resolve(__dirname, "src", "index.jsx"),
   output: {
     /* entry: 'src/index.jsx' /*Indica o arquivo inical que vai começar a nossa aplicação*/
