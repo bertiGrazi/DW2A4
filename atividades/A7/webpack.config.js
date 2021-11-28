@@ -12,6 +12,9 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
   },
+  devServer: {
+    static: path.resolve(__dirname, 'public')
+  },
   plugins: [
     new HtmlWebpPlugin({
       template: path.resolve(__dirname, "public", "index.html")
