@@ -3,6 +3,7 @@ const HtmlWebpPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
+  devtool: 'eval-source-map',
   entry: path.resolve(__dirname, "src", "index.jsx"),
   output: {
     /* entry: 'src/index.jsx' /*Indica o arquivo inical que vai começar a nossa aplicação*/
