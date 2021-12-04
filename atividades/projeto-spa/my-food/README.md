@@ -7,7 +7,6 @@
 
 <h4 align="center">
   Atividade Assíncrona de Desenvolvimento Web II (IFSP) - Professor Johnata Souza Santicioli
-  <img src="https://github.com/bertiGrazi/DW2A4/blob/main/atividades/projeto-spa/my-food/src/assets/readMe/ifsplogo.png" width="100px;"/><br>
 </h4>
 
 <h4 align="center"><a href="">Clique para visitar o projeto</a></h4>
@@ -20,7 +19,8 @@
           <img src="https://github.com/bertiGrazi/DW2A4/blob/main/atividades/projeto-spa/my-food/src/assets/readMe/meuAvatar.png" width="200px;"/><br>
         <sub>
           <b>Grazielli Lima Berti</b>
-           <b>Prontuário: SP3046966</b>
+          <br/>
+          <b>Prontuário: SP3046966</b>
         </sub>
       </a>
     </td>
