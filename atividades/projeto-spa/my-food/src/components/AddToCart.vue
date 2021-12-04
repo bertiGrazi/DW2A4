@@ -11,6 +11,7 @@
     <div>
       <p class="add-cart--observations">Observações</p>
       <textarea v-model="observations" rows="10"></textarea>
+      <button class="primary-button">Adiconar ao carrinho</button>
     </div>
   </div>
 </template>
@@ -43,8 +44,7 @@ export default {
     axios
       .get(`http://localhost:3000/${this.seletectedCategory}/${this.id}`)
       .then((response) => {
-        this.item = {quantity: 1, ...response.data};
-
+        this.item = { quantity: 1, ...response.data };
       });
   },
 };
@@ -88,6 +88,14 @@ export default {
     width: 100%;
     border-radius: 8px;
     border: 1px solid @light-grey;
+  }
+
+  .primary-button {
+    width: calc(100% - 40px);
+    position: fixed; /*fixando ele pra baixo */
+    bottom: 30px; //posição do meu botão
+    left: 20px;
+    right: 20px;
   }
 }
 </style>
