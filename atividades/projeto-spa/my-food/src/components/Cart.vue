@@ -13,7 +13,7 @@
 
 <script>
 import CartItem from "./CartItem";
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 import Mixin from "@/mixins/mixins";
 
 export default {
@@ -30,12 +30,12 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["getCartTotal"]),
+   ...mapGetters(['getCartTotal']),
     cartList() {
       return this.$store.state.cartList;
     },
     hasNoItem() {
-     return !this.cartList.length;
+      return !this.cartList.length;
     }
   },
 };

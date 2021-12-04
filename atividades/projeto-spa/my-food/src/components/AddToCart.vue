@@ -1,6 +1,6 @@
 <template>
   <div class="add-cart">
-      hellow {{id}}
+      hello {{id}}
   </div>
 </template>
 
@@ -11,5 +11,4 @@ export default {
 </script>
 
 <style>
-
 </style>

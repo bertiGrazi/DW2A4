@@ -45,9 +45,9 @@ export const store = new Vuex.Store({
   },
   getters: {
     getCartTotal: state => {
-      return state.cartList.reduce((acc, item) => {
-        return acc + (item.price * item.quantity)
-      }, 0)
-    },
-  },
+        return state.cartList.reduce( (acc, item) => {
+            return acc + (item.price * item.quantity)
+        }, 0)
+    }
+}
 });
