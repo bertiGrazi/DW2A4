@@ -11,7 +11,7 @@
     <div>
       <p class="add-cart--observations">Observações</p>
       <textarea v-model="observations" rows="10"></textarea>
-      <button class="primary-button">Adiconar ao carrinho</button>
+      <button class="primary-button" @click="onAddToCartButtonClick">Adiconar ao carrinho</button>
     </div>
   </div>
 </template>
@@ -46,6 +46,12 @@ export default {
       .then((response) => {
         this.item = { quantity: 1, ...response.data };
       });
+  },
+  methods: {
+    onAddToCartButtonClick() {
+      this.$store.dispatch('addToCart', this.item);
+      this.$router.push({name: 'Home'});
+    }
   },
 };
 </script>
