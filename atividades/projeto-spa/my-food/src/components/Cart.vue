@@ -1,19 +1,23 @@
 <template>
   <div class="cart">
-    <router-link to="/" class="cart--go-back" v-if="isSmallScreans()">←️ Voltar</router-link>
+    <router-link to="/" class="cart--go-back" v-if="isSmallScreans()"
+      >←️ Voltar</router-link
+    >
     <h2 class="cart--title">Seu pedido</h2>
     <p v-if="hasNoItem">Seu carrinho ainda está vazio</p>
-    <CartItem v-for="item in cartList" :key="item.id" :item="item" />
+    <transition-group name="list">
+      <CartItem v-for="item in cartList" :key="item.id" :item="item" />
+    </transition-group>
     <div class="cart--total" v-if="!hasNoItem">
       <span>Total:</span>
-      <span class="price">{{ getCartTotal | currency}}</span>
+      <span class="price">{{ getCartTotal | currency }}</span>
     </div>
   </div>
 </template>
 
 <script>
 import CartItem from "./CartItem";
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 import Mixin from "@/mixins/mixins";
 
 export default {
@@ -30,13 +34,13 @@ export default {
     },
   },
   computed: {
-   ...mapGetters(['getCartTotal']),
+    ...mapGetters(["getCartTotal"]),
     cartList() {
       return this.$store.state.cartList;
     },
     hasNoItem() {
       return !this.cartList.length;
-    }
+    },
   },
 };
 </script>
@@ -73,7 +77,14 @@ export default {
       padding-left: 10px;
     }
   }
-
+  .list-enter-active,
+  .list-leave-active {
+    transition: all 1s;
+  }
+  .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
   @media @smartphones {
     width: 100%;
     min-width: unset; //sobreescreve
