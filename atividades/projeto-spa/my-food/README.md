@@ -32,6 +32,10 @@ Para o desenvolvimento deste site utilizei as seguintes tecnologias:
 - HTML;
 - Sass;
 - JavaScript;
-- Vue.js;
-
+- Vue.CLI;
+- Vuex;
+- Json Server;
+- Axios;
+- Vue Animations;
+- Feather Icons;
 ---
