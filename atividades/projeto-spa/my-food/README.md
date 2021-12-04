@@ -2,4 +2,4 @@
 
 #### 									Projeto de Desenvolvimento em SPA 
 
-<img src="C:\Users\Dell\Desktop\2.png" style="zoom:33%;" />
+###### Atividade Assíncrona de Desenvolvimento Web II (IFSP) - Professor Johnata Souza Santicioli
