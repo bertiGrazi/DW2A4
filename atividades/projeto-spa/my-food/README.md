@@ -16,7 +16,7 @@
   <tr>
     <td align="center">
       <a href="https://github.com/bertiGrazi">
-          <img src="https://github.com/bertiGrazi/DW2A4/blob/main/atividades/projeto-spa/my-food/src/assets/icons/avatar/meuAvatar.png" width="100px;"/><br>
+          <img src="https://github.com/bertiGrazi/DW2A4/blob/main/atividades/projeto-spa/my-food/src/assets/icons/avatar/meuAvatar.png" width="200px;"/><br>
         <sub>
           <b>Grazielli Lima Berti</b>
            <b>Prontuário: SP3046966</b>
