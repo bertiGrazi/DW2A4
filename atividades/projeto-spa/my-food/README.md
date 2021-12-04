@@ -9,12 +9,10 @@
   Atividade Assíncrona de Desenvolvimento Web II (IFSP) - Professor Johnata Souza Santicioli
 </h4>
 
-![Resultado final do projeto]()
-
 <h4 align="center"><a href="">Clique para visitar o projeto</a></h4>
 
 ##  Autora<br>
-<table>
+<table align="center">
   <tr>
     <td align="center">
       <a href="https://github.com/bertiGrazi">
