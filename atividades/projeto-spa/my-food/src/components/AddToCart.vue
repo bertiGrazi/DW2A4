@@ -6,7 +6,7 @@
     <Item :item="item" class="add-cart--item" />
     <div class="add-cart--container">
       <span>Quantidade</span>
-      <Quantity :item="item" />
+      <Quantity :item="item" :useStore="false"/>
     </div>
     <div>
       <p class="add-cart--observations">Observações</p>
@@ -43,7 +43,8 @@ export default {
     axios
       .get(`http://localhost:3000/${this.seletectedCategory}/${this.id}`)
       .then((response) => {
-        this.item = response.data;
+        this.item = {quantity: 1, ...response.data};
+
       });
   },
 };
