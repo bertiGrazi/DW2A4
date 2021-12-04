@@ -1,6 +1,9 @@
 <h1 align="center">
-    🍽<br>My-Food - Projeto de Desenvolvimento em SPA 🍽 </b>
+    🍽<br>My-Food
 </h1>
+<h3 align="center">
+    Projeto de Desenvolvimento em <br>Vue.js
+</h3>
 
 <h4 align="center">
   Atividade Assíncrona de Desenvolvimento Web II (IFSP) - Professor Johnata Souza Santicioli
@@ -10,7 +13,7 @@
 
 <h4 align="center"><a href="">Clique para visitar o projeto</a></h4>
 
-## 🧖‍♀️ Autora<br>
+##  Autora<br>
 <table>
   <tr>
     <td align="center">
