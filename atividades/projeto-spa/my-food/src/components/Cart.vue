@@ -1,9 +1,10 @@
 <template>
   <div class="cart">
-    <router-link to="/" class="cart--go-back">←️ Voltar</router-link>
+    <router-link to="/" class="cart--go-back" v-if="isSmallScreans()">←️ Voltar</router-link>
     <h2 class="cart--title">Seu pedido</h2>
+    <p v-if="hasNoItem">Seu carrinho ainda está vazio</p>
     <CartItem v-for="item in cartList" :key="item.id" :item="item" />
-    <div class="cart--total">
+    <div class="cart--total" v-if="!hasNoItem">
       <span>Total:</span>
       <span class="price">{{ getCartTotal | currency}}</span>
     </div>
@@ -13,9 +14,11 @@
 <script>
 import CartItem from "./CartItem";
 import { mapGetters } from "vuex";
+import Mixin from "@/mixins/mixins";
 
 export default {
   name: "Cart",
+  mixins: [Mixin],
   components: {
     CartItem,
   },
@@ -31,6 +34,9 @@ export default {
     cartList() {
       return this.$store.state.cartList;
     },
+    hasNoItem() {
+     return !this.cartList.length;
+    }
   },
 };
 </script>

@@ -59,6 +59,7 @@ export default {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
+  align-content: flex-start;
 
   @media @smartphones {
     flex-wrap: wrap;
