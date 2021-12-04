@@ -37,9 +37,15 @@ export default {
   }
 
   &--title {
-     margin-top: 50px;
+    margin-top: 50px;
     font-weight: 600;
     font-size: 24px;
+  }
+
+  @media @smartphones {
+    width: 100%;
+    min-width: unset; //sobreescreve
+    padding: 50px 20px 20px;
   }
 }
 </style>
