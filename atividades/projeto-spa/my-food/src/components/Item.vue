@@ -21,6 +21,7 @@ export default {
   mixins: [Mixin],
   filters: {
     currency(value) {
+      if(!value) return;
       return `R$ ${value.toLocaleString("pt-br", {
         minimumFractionDigits: 2,
       })}`;
@@ -32,6 +33,7 @@ export default {
   },
   computed: {
     imagePath() {
+      if(!this.item?.id) return;
       return require(`../assets/images/${this.item.id}.png`);
     },
   },
@@ -52,7 +54,7 @@ export default {
   border-radius: 8px;
   background: white;
   position: relative;
-  margin: 20px;
+  margin: 20px auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
