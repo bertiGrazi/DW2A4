@@ -28,11 +28,8 @@ export default {
     item: {},
   },
   computed: {
-    seletectedCategory() {
-      return this.$store.state.seletectedCategory;
-    },
     imagePath() {
-      return require(`../assets/images/${this.seletectedCategory}/${this.item.id}.png`);
+      return require(`../assets/images/${this.item.id}.png`);
     },
   },
   methods: {
