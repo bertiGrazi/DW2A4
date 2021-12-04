@@ -1,7 +1,13 @@
 <template>
   <div class="item">
     <div class="item--quantity">
-      <button class="buttons" @click="decreaseQuantity(item.id)" :disabled="item.quantity == 0">-</button>
+      <button
+        class="buttons"
+        @click="decreaseQuantity(item.id)"
+        :disabled="item.quantity == 0"
+      >
+        -
+      </button>
       <span class="number">{{ item.quantity }}</span>
       <button class="buttons" @click="increaseQuantity(item.id)">+</button>
     </div>
@@ -39,7 +45,7 @@ export default {
   methods: {
     ...mapActions(["increaseQuantity", "decreaseQuantity"]),
   },
-}
+};
 </script>
 
 <style lang="less" scoped>
@@ -68,7 +74,9 @@ export default {
       background: none;
       border: 0;
 
-       &:focus {outline:0;}
+      &:focus {
+        outline: 0;
+      }
     }
   }
   &--img-container {
