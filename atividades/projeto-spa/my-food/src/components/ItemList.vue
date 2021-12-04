@@ -22,7 +22,9 @@ export default {
       isLoading: false,
     };
   },
-  created() {},
+  created() {
+    this.getItemsList();
+  },
   computed: {
     seletectedCategory() {
      return this.$store.state.seletectedCategory;
