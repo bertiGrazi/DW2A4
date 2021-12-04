@@ -1,17 +1,18 @@
 <h1 align="center">
-    🍽<br>My-Food - Projeto de Desenvolvimento em SPA 🍽 </b>
+    🍽<br>My-Food
 </h1>
+<h3 align="center">
+    Projeto de Desenvolvimento em <br>Vue.js
+</h3>
 
 <h4 align="center">
   Atividade Assíncrona de Desenvolvimento Web II (IFSP) - Professor Johnata Souza Santicioli
 </h4>
 
-![Resultado final do projeto]()
-
 <h4 align="center"><a href="">Clique para visitar o projeto</a></h4>
 
-## 🧖‍♀️ Autora<br>
-<table>
+##  Autora<br>
+<table align="center">
   <tr>
     <td align="center">
       <a href="https://github.com/bertiGrazi">
