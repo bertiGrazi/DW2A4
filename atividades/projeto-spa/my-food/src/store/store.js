@@ -21,6 +21,9 @@ export const store = new Vuex.Store({
     decreaseQuantity(state, index) {
       --state.cartList[index].quantity;
     },
+    removeFromCart(state, index) {
+      state.cartList.splice(index, 1);
+    },
   },
   actions: {
     changeCategory(context, id) {
@@ -41,9 +44,13 @@ export const store = new Vuex.Store({
         quantity: el?.quantity || 1,
       });
     },
+    removeFromCart({ state, commit }, id) {
+      const index = state.cartList.findIndex((cartItem) => cartItem.id === id);
+      if (index !== -1) commit("removeFromCart", index);
+    },
     increaseQuantity({ state, commit }, id) {
       const index = state.cartList.findIndex((cartItem) => cartItem.id === id);
-      commit("increaseQuantity", {index: index, quantity: 1});
+      commit("increaseQuantity", { index: index, quantity: 1 });
     },
     decreaseQuantity({ state, commit }, id) {
       const index = state.cartList.findIndex((cartItem) => cartItem.id === id);
