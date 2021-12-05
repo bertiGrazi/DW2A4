@@ -106,6 +106,7 @@
       Concluir seu pedido
     </button>
 
+    <!-- Adress Modal-->
     <Modal :show="showAdressModal" @on-modal-close="hideAdressModal">
       <div class="modal-content">
         <h1>Adicionar endereço</h1>
@@ -179,11 +180,34 @@
         </button>
       </div>
     </Modal>
+
+    <!--Invalid Andress Modal -->
+    <Modal
+      :show="showInvalidAdressModal"
+      @on-modal-close="hideInvalidAddressModal"
+    >
+      <div class="invalid-address-modal">
+        <span v-html="warningIcon" class="icon"></span>
+        <span
+          >Na modalidade delivery é necessário adicionar um endereço
+          válido.</span
+        >
+      </div>
+    </Modal>
+
+    <!--Sucess Validation Modal -->
+    <Modal :show="showSucessModal" @on-modal-close="hideSucessModal">
+      <div class="sucess-modal">
+        <span v-html="sucessIcon" class="icon"></span>
+        <span>Pedido realizado com sucesso</span>
+      </div>
+    </Modal>
   </div>
 </template>
 
 <script>
 import Modal from "./Modal.vue";
+import feather from "feather-icons";
 
 export default {
   components: {
@@ -255,12 +279,20 @@ export default {
         },
       },
       showAdressModal: false,
+      showInvalidAdressModal: false,
+      showSucessModal: false,
       deliveryType: "store",
       savedAdress: false,
       paymentType: "credit-card",
     };
   },
   computed: {
+    warningIcon() {
+      return feather.icons["alert-triangle"].toSvg();
+    },
+    sucessIcon() {
+      return feather.icons["check-circle"].toSvg();
+    },
     isAdressFormValid() {
       let isValid = true;
 
@@ -268,6 +300,12 @@ export default {
       isValid &= this.formData.city.valid;
       isValid &= this.formData.street.valid;
       isValid &= this.formData.number.valid;
+      return isValid;
+    },
+    isUserFormDataValid() {
+      let isValid = true;
+      isValid &= this.formData.cellphone.valid;
+      isValid &= this.formData.name.valid;
       return isValid;
     },
     isDeliveryType() {
@@ -289,6 +327,11 @@ export default {
     triggerValidations() {
       this.formData.name.isValid();
       this.formData.cellphone.isValid();
+
+      if (this.isDeliveryType) {
+        this.triggerAdressFormValidations();
+        this.showInvalidAdressModal = !this.isAdressFormValid;
+      }
     },
     triggerAdressFormValidations() {
       this.formData.cep.isValid();
@@ -298,6 +341,8 @@ export default {
     },
     orderItens() {
       this.triggerValidations();
+      if (!this.isUserFormDataValid || !this.isAdressFormValid) return;
+      this.showSucessModal = true;
     },
     onShowAddressModal() {
       this.showAdressModal = true;
@@ -310,6 +355,14 @@ export default {
       if (!this.isAdressFormValid) return;
       this.savedAdress = true;
       this.showAdressModal = false;
+    },
+    hideInvalidAddressModal() {
+      this.showInvalidAdressModal = false;
+    },
+    hideSucessModal() {
+      this.showSucessModal = false;
+      this.$router.push({name: 'Home'}); 
+      //TODO: Verificação se o carrinho está vazio
     },
   },
 };
@@ -426,6 +479,17 @@ export default {
     }
   }
 
+  .invalid-address-modal, .sucess-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+
+    .icon {
+      margin-bottom: 15px;
+    }
+  }
   @media @smartphones {
     width: 100%;
     padding: 0;
