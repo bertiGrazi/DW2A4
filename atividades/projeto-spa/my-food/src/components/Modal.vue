@@ -54,6 +54,7 @@ export default {
 
         &--close {
             text-align: right;
+            cursor: pointer;
         }
 
          @media @smartphones {
