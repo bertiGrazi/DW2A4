@@ -55,5 +55,12 @@ export default {
         &--close {
             text-align: right;
         }
+
+         @media @smartphones {
+             &--content {
+                 width: 90%;
+                 padding: 15px;
+             }
+         }
     }
 </style>
