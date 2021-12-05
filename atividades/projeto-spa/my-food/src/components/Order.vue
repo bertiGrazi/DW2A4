@@ -1,20 +1,21 @@
 <template>
   <div class="order">
     <form>
-    <p class="section-title">Seus Dados</p>
-      <div class="input-field">
-        <label for="">{{ formData.name.label }}</label>
-        <input
-          type="text"
-          :placeholder="formData.name.placeholder"
-          v-model="formData.name.value"
-          @blur="formData.name.isValid()"
-          :class="{ error: !formData.name.valid }"
-        />
-        <p class="error-message" v-if="!formData.name.valid">
-          {{ formData.name.errorMessage }}
-        </p>
-       </div>
+      <div class="user-data">
+        <p class="section-title">Seus Dados</p>
+        <div class="input-field">
+          <label for="">{{ formData.name.label }}</label>
+          <input
+            type="text"
+            :placeholder="formData.name.placeholder"
+            v-model="formData.name.value"
+            @blur="formData.name.isValid()"
+            :class="{ error: !formData.name.valid }"
+          />
+          <p class="error-message" v-if="!formData.name.valid">
+            {{ formData.name.errorMessage }}
+          </p>
+        </div>
         <div class="input-field">
           <label for="">{{ formData.cellphone.label }}</label>
           <input
@@ -29,7 +30,22 @@
             {{ formData.cellphone.errorMessage }}
           </p>
         </div>
-    
+      </div>
+      <div class="adress">
+        <p class="section-title">Endereço</p>
+        <div class="delivery-type">
+          <div class="radio-options">
+            <input type="radio" name="delivery-type" id="store" checked />
+            <label for="store">Retirar na loja</label>
+          </div>
+
+          <div class="radio-options">
+            <input type="radio" name="delivery-type" id="delivery" />
+            <label for="delivery">Delivery</label>
+          </div>
+        </div>
+        <a>Adiconar endereço</a>
+      </div>
     </form>
     <button class="primary-button" @click="orderItens">
       Concluir seu pedido
@@ -114,6 +130,34 @@ export default {
     .error-message {
       font-size: 12px;
       color: @error-color;
+    }
+
+    .adress {
+      .delivery-type {
+        display: flex;
+      }
+
+      a {
+        color: @pink;
+        font-weight: normal;
+        font-size: 12px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    .radio-options {
+      display: flex;
+      align-items: center;
+
+      & + .radio-options {
+        margin-left: 25px;
+      }
+
+      label {
+        padding-left: 10px;
+        margin: 0px;
+      }
     }
   }
 }
