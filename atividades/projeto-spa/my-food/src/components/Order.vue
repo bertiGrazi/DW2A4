@@ -44,17 +44,26 @@
             <label for="delivery">Delivery</label>
           </div>
         </div>
-        <a>Adiconar endereço</a>
+        <a @click="onShowAdressModal">Adiconar endereço</a>
       </div>
     </form>
     <button class="primary-button" @click="orderItens">
       Concluir seu pedido
     </button>
+
+    <Modal :show="showAdressModal" @on-modal-close="hideAdressModal">
+
+    </Modal>
   </div>
 </template>
 
 <script>
+import Modal from './Modal.vue'
+
 export default {
+  components: {
+    Modal
+  },
   data() {
     return {
       formData: {
@@ -80,6 +89,7 @@ export default {
           },
         },
       },
+      showAdressModal: false
     };
   },
   methods: {
@@ -90,6 +100,12 @@ export default {
     orderItens() {
       this.triggerValidations();
     },
+    onShowAdressModal() {
+      this.showAdressModal = true;
+    },
+    hideAdressModal() {
+      this.showAdressModal = false;
+    }
   },
 };
 </script>
