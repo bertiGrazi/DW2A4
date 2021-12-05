@@ -4,14 +4,17 @@
       >←️ Voltar</router-link
     >
     <h2 class="cart--title">Seu pedido</h2>
-    <p v-if="hasNoItem">Seu carrinho ainda está vazio</p>
-    <transition-group name="list">
-      <CartItem v-for="item in cartList" :key="item.id" :item="item" />
-    </transition-group>
+    <div class="cart--content">
+      <p v-if="hasNoItem">Seu carrinho ainda está vazio</p>
+      <transition-group name="list">
+        <CartItem v-for="item in cartList" :key="item.id" :item="item" />
+      </transition-group>
+    </div>
     <div class="cart--total" v-if="!hasNoItem">
       <span>Total:</span>
       <span class="price">{{ getCartTotal | currency }}</span>
     </div>
+    <button class="primary-button payment-button" @click="goToPayment">Finalizar pedido</button>
   </div>
 </template>
 
@@ -24,7 +27,7 @@ export default {
   name: "Cart",
   mixins: [Mixin],
   components: {
-    CartItem
+    CartItem,
   },
   filters: {
     currency(value) {
@@ -40,6 +43,11 @@ export default {
     },
     hasNoItem() {
       return !this.cartList.length;
+    },
+  },
+  methods: {
+    goToPayment() {
+      this.$router.push({name: 'Payment'});
     }
   },
 };
@@ -49,8 +57,11 @@ export default {
 .cart {
   background: white;
   width: 643px;
+  height: 100vh;
   min-width: 643px;
   padding: 50px;
+  display: flex;
+  flex-direction: column;
 
   &--go-back {
     font-weight: 600;
@@ -66,6 +77,11 @@ export default {
     font-size: 24px;
   }
 
+  &--content {
+    flex-grow: 1; //ocupar todo o espaço que ele tem
+    overflow: auto; //ele mesmo vai ver se vai precisar do scrow e precisa ter os valores do height e width definidos
+  }
+
   &--total {
     font-weight: 600;
     font-size: 18px;
@@ -77,6 +93,12 @@ export default {
       padding-left: 10px;
     }
   }
+
+  .payment-button {
+    width: 391px;
+    margin: 20px auto; //centralizado
+  }
+
   .list-enter-active,
   .list-leave-active {
     transition: all 1s;
@@ -89,6 +111,10 @@ export default {
     width: 100%;
     min-width: unset; //sobreescreve
     padding: 50px 20px 20px;
+
+    .payment-button {
+      width: 100%;
+    }
   }
 }
 </style>
