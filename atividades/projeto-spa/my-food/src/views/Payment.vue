@@ -4,7 +4,7 @@
       <router-link to="/" class="payment--go-back">←️ Voltar</router-link>
       <Order />
     </div>
-    <Cart class="cart-menu"/>
+    <Cart class="cart-menu" />
   </div>
 </template>
 
@@ -16,7 +16,7 @@ import Order from "@/components/Order.vue";
 export default {
   components: {
     Cart,
-    Order
+    Order,
   },
   mixins: [Mixin],
 };
@@ -40,13 +40,12 @@ export default {
   }
 
   @media @small-desktops {
-
     .cart-menu {
       display: none;
     }
-     &--content {
-       padding: 50px 50px;
-     }
+    &--content {
+      padding: 50px 50px;
+    }
   }
 }
 </style>
