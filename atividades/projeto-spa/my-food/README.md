@@ -37,6 +37,7 @@ Para o desenvolvimento deste site utilizei as seguintes tecnologias:
 - Vuex;
 - Vue nexttick;
 - Vue animations;
+- V-mask;
 - Json Server;
 - Axios;
 - Feather Icons;
