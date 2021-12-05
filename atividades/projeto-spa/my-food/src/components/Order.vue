@@ -361,8 +361,7 @@ export default {
     },
     hideSucessModal() {
       this.showSucessModal = false;
-      this.$router.push({name: 'Home'}); 
-      //TODO: Verificação se o carrinho está vazio
+      this.$router.push({name: 'Home'});
     },
   },
 };
@@ -490,9 +489,10 @@ export default {
       margin-bottom: 15px;
     }
   }
-  @media @smartphones {
+  @media @small-desktops {
     width: 100%;
-    padding: 0;
+    max-width: 800px;
+    padding: 20px;
 
     .modal-content {
       button {
@@ -509,6 +509,10 @@ export default {
         margin-left: 5px;
       }
     }
+  }
+
+  @media @smartphones {
+    padding: 0;
   }
 }
 </style>

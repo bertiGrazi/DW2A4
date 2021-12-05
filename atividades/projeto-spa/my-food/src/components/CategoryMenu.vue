@@ -44,7 +44,7 @@ export default {
     };
   },
   mounted() {
-    this.onCategoryClick('pizza');
+    this.onCategoryClick("pizza");
   },
   methods: {
     onCategoryClick(id) {
@@ -110,18 +110,27 @@ export default {
     }
   }
 
-  @media @smartphones {
+  @media @small-desktops {
     width: 100%;
+    max-width: 800px;
+    margin: auto;
     height: fit-content;
 
     ul {
       display: flex; /*Um do ladinho do outro*/
+      justify-content: space-around;
       margin: 20px;
       overflow: scroll; /*overflow é o nosso scrool*/
     }
 
     li {
       min-width: 78px;
+    }
+  }
+
+  @media @smartphones {
+    ul {
+      justify-content: unset;
     }
   }
 }
