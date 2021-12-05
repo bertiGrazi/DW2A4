@@ -7,6 +7,7 @@
     <div class="content">
       <h3 class="item--name">{{ item.name }}</h3>
       <a class="item--observation">Adicionar observação</a>
+      <p class="item--observation-text">{{item.observations}}</p>
     </div>
     <p class="item--price">{{ item.price | currency }}</p>
   </div>
@@ -96,6 +97,10 @@ export default {
     font-size: 12px;
     color: @dark-grey;
     text-decoration: underline;
+  }
+  &--observation-text {
+    font-size: 12px;
+    color: @dark-grey;
   }
   .content {
     flex-grow: 1;
