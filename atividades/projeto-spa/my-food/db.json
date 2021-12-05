@@ -23,10 +23,38 @@
         },
         {
             "id": "0004",
+            "name": "Show Burgue",
+            "description": "Pão, maionese, 2 hamburguer de 180g, maionese temperada, bacon, alface e tomate",
+            "price": 12.0,
+            "offer": false
+        },
+        {
+            "id": "0015",
             "name": "Kids Burguer",
             "description": "Pão, maionese, 1 hamburguer de 180g e 1 fatia de queijo cheddar",
             "price": 12.0,
             "offer": false
+        },
+        {
+            "id": "0016",
+            "name": "Magnifico Burgue",
+            "description": "3 hamburguer de 180g, molho de queijo gorgonzola, bacon, salada e tomate",
+            "price": 12.90,
+            "offer": true
+        },
+        {
+            "id": "0017",
+            "name": "Tudo Burgue",
+            "description": "3 hamburguer de 100g, ovo, salada, tomate, cebola e especial queijo cheddar da casa",
+            "price": 15.0,
+            "offer": false
+        },
+        {
+            "id": "0018",
+            "name": "Burgue Fish",
+            "description": "Pão, maionese, 1 hamburguer de 180g  de peixe, salada, maionese temperada",
+            "price": 10.90,
+            "offer": true
         }
     ],
     "pizza": [
@@ -42,14 +70,49 @@
             "name": "4 Queijos",
             "description": "Molho de tomate e 4 queijos",
             "price": 27.0,
-            "offer": false
+            "offer": true
         },
         {
             "id": "0007",
-            "name": "Strogonoff",
-            "description": "Molho de tomate e strogonoff de carne",
-            "price": 29.0,
+            "name": "Mussarela",
+            "description": "Molho de tomate e muito queijo",
+            "price": 25.0,
             "offer": false
+        },
+        {
+            "id": "0019",
+            "name": "Pepperoni",
+            "description": "Molho de tomate, pepperoni, queijo e pimenta calabreza",
+            "price": 29.90,
+            "offer": true
+        },
+        {
+            "id": "0020",
+            "name": "Frango com Catupiry",
+            "description": "Frango com catupiry e queijo",
+            "price": 27.0,
+            "offer": false
+        },
+        {
+            "id": "0021",
+            "name": "Atum",
+            "description": "Molho de tomate e atum e queijo",
+            "price": 30.0,
+            "offer": false
+        },
+        {
+            "id": "0022",
+            "name": "Tomate Seco",
+            "description": "Molho de tomate, tomate seco e muito queijo",
+            "price": 32.90,
+            "offer": false
+        },
+        {
+            "id": "0023",
+            "name": "5 Queijos",
+            "description": "Molho de tomate e 5 queijos",
+            "price": 29.0,
+            "offer": true
         }
     ],
     "deserts": [
