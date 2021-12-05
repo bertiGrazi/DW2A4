@@ -38,5 +38,11 @@ export default {
       padding: 50px 20px;
     }
   }
+
+  @media @smartphones {
+     &--content {
+       padding: 50px 50px;
+     }
+  }
 }
 </style>
