@@ -425,5 +425,26 @@ export default {
       }
     }
   }
+
+  @media @smartphones {
+    width: 100%;
+    padding: 0;
+
+    .modal-content {
+      button {
+        cursor: pointer;
+        & + button {
+          text-align: center;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .adress-container {
+      .input-field + .input-field {
+        margin-left: 5px;
+      }
+    }
+  }
 }
 </style>
