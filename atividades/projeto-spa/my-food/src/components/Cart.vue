@@ -1,6 +1,6 @@
 <template>
   <div class="cart">
-    <router-link to="/" class="cart--go-back" v-if="isSmallScreans()"
+    <router-link to="/" class="cart--go-back" v-if="!isDesktop()"
       >←️ Voltar</router-link
     >
     <h2 class="cart--title">Seu pedido</h2>
@@ -14,7 +14,13 @@
       <span>Total:</span>
       <span class="price">{{ getCartTotal | currency }}</span>
     </div>
-    <button class="primary-button payment-button"  v-if="cartList.length" @click="goToPayment">Finalizar pedido</button>
+    <button
+      class="primary-button payment-button"
+      v-if="cartList.length && !isPaymentScreen"
+      @click="goToPayment"
+    >
+      Finalizar pedido
+    </button>
   </div>
 </template>
 
@@ -44,11 +50,14 @@ export default {
     hasNoItem() {
       return !this.cartList.length;
     },
+    isPaymentScreen() {
+      return this.$route.name === 'Payment'
+    }
   },
   methods: {
     goToPayment() {
-      this.$router.push({name: 'Payment'});
-    }
+      this.$router.push({ name: "Payment" });
+    },
   },
 };
 </script>
@@ -56,19 +65,15 @@ export default {
 <style lang="less" scoped>
 .cart {
   background: white;
-  width: 643px;
+  width: 600px;
   height: 100vh;
-  min-width: 643px;
-  padding: 50px;
+  min-width: 600px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
 
   &--go-back {
-    font-weight: 600;
-    font-size: 18px;
-    text-decoration: none;
-    color: black;
-    padding: 50px 20px;
+    display: none;
   }
 
   &--title {
@@ -107,13 +112,24 @@ export default {
     opacity: 0;
     transform: translateX(-30px);
   }
-  @media @smartphones {
+  @media @small-desktops {
     width: 100%;
+    max-width: 800px;
+    margin: auto;
     min-width: unset; //sobreescreve
     padding: 50px 20px 20px;
 
     .payment-button {
       width: 100%;
+    }
+
+    &--go-back {
+      font-weight: 600;
+      font-size: 18px;
+      text-decoration: none;
+      color: black;
+      padding: 50px 20px;
+      display: block;
     }
   }
 }

@@ -1,17 +1,17 @@
 <template>
   <div class="add-cart">
-    <router-link to="/" class="add-cart--go-back" v-if="isSmallScreans()"
-      >←️ Voltar</router-link
-    >
+    <router-link to="/" class="add-cart--go-back">←️ Voltar</router-link>
     <Item :item="item" class="add-cart--item" />
     <div class="add-cart--container">
       <span>Quantidade</span>
-      <Quantity :item="item" :useStore="false"/>
+      <Quantity :item="item" :useStore="false" />
     </div>
     <div>
       <p class="add-cart--observations">Observações</p>
-      <textarea v-model="item.observations" rows="10"></textarea>
-      <button class="primary-button" @click="onAddToCartButtonClick">Adiconar ao carrinho</button>
+      <textarea v-model="item.observations" rows="2"></textarea>
+      <button class="primary-button" @click="onAddToCartButtonClick">
+        Adiconar ao carrinho
+      </button>
     </div>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {
-      item: {}
+      item: {},
     };
   },
   computed: {
@@ -40,22 +40,27 @@ export default {
     },
   },
   created() {
+    if(this.isDesktop()) {
+      this.$router.push({name: 'Home'});
+    }
     axios
       .get(`http://localhost:3000/${this.seletectedCategory}/${this.id}`)
       .then((response) => {
-        this.item = { quantity: 1, observations:"", ...response.data};
+        this.item = { quantity: 1, observations: "", ...response.data };
       });
   },
   methods: {
     onAddToCartButtonClick() {
-      this.$store.dispatch('addToCart', this.item);
-      this.$router.push({name: 'Home'});
-    }
+      this.$store.dispatch("addToCart", this.item);
+      this.$router.push({ name: "Home" });
+    },
   },
 };
 </script>
 <style lang="less">
 .add-cart {
+  max-width: 600px;
+  margin: auto;
   padding: 50px 20px;
 
   &--go-back {
@@ -97,10 +102,18 @@ export default {
 
   .primary-button {
     width: calc(100% - 40px);
-    position: fixed; /*fixando ele pra baixo */
-    bottom: 30px; //posição do meu botão
-    left: 20px;
-    right: 20px;
+    max-width: 300px;
+    margin: 30px auto;
+    display: block;
+  }
+
+  @media @smartphones {
+    button {
+      position: fixed;
+      bottom: 30px;
+      width: calc(100% - 40px);
+      max-width: unset;
+    }
   }
 }
 </style>
