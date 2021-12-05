@@ -3,6 +3,7 @@
     <form>
       <div class="user-data">
         <p class="section-title">Seus Dados</p>
+        <!-- Name -->
         <div class="input-field">
           <label for="">{{ formData.name.label }}</label>
           <input
@@ -16,6 +17,7 @@
             {{ formData.name.errorMessage }}
           </p>
         </div>
+        <!-- Cellphone -->
         <div class="input-field">
           <label for="">{{ formData.cellphone.label }}</label>
           <input
@@ -52,17 +54,81 @@
     </button>
 
     <Modal :show="showAdressModal" @on-modal-close="hideAdressModal">
+      <div class="modal-content">
+        <h1>Adicionar endereço</h1>
+        <!-- CEP -->
+        <div class="input-field">
+          <label for="">{{ formData.cep.label }}</label>
+          <input
+            type="text"
+            :placeholder="formData.cep.placeholder"
+            v-model="formData.cep.value"
+            @blur="formData.cep.isValid()"
+            :class="{ error: !formData.cep.valid }"
+          />
+          <p class="error-message" v-if="!formData.cep.valid">
+            {{ formData.cep.errorMessage }}
+          </p>
+        </div>
+        <!-- City -->
+        <div class="input-field">
+          <label for="">{{ formData.city.label }}</label>
+          <input
+            type="text"
+            :placeholder="formData.city.placeholder"
+            v-model="formData.city.value"
+            @blur="formData.city.isValid()"
+            :class="{ error: !formData.city.valid }"
+          />
+          <p class="error-message" v-if="!formData.city.valid">
+            {{ formData.city.errorMessage }}
+          </p>
+        </div>
+        <!-- Street and Number-->
+        <div class="adress-container">
+          <!-- Street-->
+          <div class="input-field">
+            <label for="">{{ formData.street.label }}</label>
+            <input
+              type="text"
+              :placeholder="formData.street.placeholder"
+              v-model="formData.street.value"
+              @blur="formData.street.isValid()"
+              :class="{ error: !formData.street.valid }"
+            />
+            <p class="error-message" v-if="!formData.street.valid">
+              {{ formData.street.errorMessage }}
+            </p>
+          </div>
+          <!-- Number-->
+          <div class="input-field">
+            <label for="">{{ formData.number.label }}</label>
+            <input
+              type="text"
+              :placeholder="formData.number.placeholder"
+              v-model="formData.number.value"
+              @blur="formData.number.isValid()"
+              :class="{ error: !formData.number.valid }"
+            />
+            <p class="error-message" v-if="!formData.number.valid">
+              {{ formData.number.errorMessage }}
+            </p>
+          </div>
+        </div>
 
+        <button class="secondary-button" @click="hideAdressModal">Cancelar</button>
+        <button class="primary-button">Adicionar</button>
+      </div>
     </Modal>
   </div>
 </template>
 
 <script>
-import Modal from './Modal.vue'
+import Modal from "./Modal.vue";
 
 export default {
   components: {
-    Modal
+    Modal,
   },
   data() {
     return {
@@ -88,8 +154,48 @@ export default {
               this.formData.cellphone.value.length === 16;
           },
         },
+        cep: {
+          value: "",
+          placeholder: "Digite seu cep",
+          errorMessage: "O cep é obrigatório",
+          label: "CEP*",
+          valid: true,
+          isValid: () => {
+            this.formData.cep.valid = this.formData.cep.value.length;
+          },
+        },
+        city: {
+          value: "",
+          placeholder: "Digite sua cidade",
+          errorMessage: "A cidade é obrigatória",
+          label: "Cidade*",
+          valid: true,
+          isValid: () => {
+            this.formData.city.valid = this.formData.city.value.length;
+          },
+        },
+        street: {
+          value: "",
+          placeholder: "Digite sua rua",
+          errorMessage: "A rua é obrigatória",
+          label: "Rua*",
+          valid: true,
+          isValid: () => {
+            this.formData.street.valid = this.formData.street.value.length;
+          },
+        },
+        number: {
+          value: "",
+          placeholder: "Número",
+          errorMessage: "O número é obrigatória",
+          label: "Número*",
+          valid: true,
+          isValid: () => {
+            this.formData.number.valid = this.formData.street.number.length;
+          },
+        },
       },
-      showAdressModal: false
+      showAdressModal: false,
     };
   },
   methods: {
@@ -105,7 +211,7 @@ export default {
     },
     hideAdressModal() {
       this.showAdressModal = false;
-    }
+    },
   },
 };
 </script>
@@ -118,24 +224,9 @@ export default {
   border-radius: 8px;
   padding: 30px 50px;
 
-  form {
+  .input-field {
     display: flex;
     flex-direction: column;
-
-    .input-field {
-      display: flex;
-      flex-direction: column;
-
-      & + .input-field {
-        margin-top: 10px;
-      }
-    }
-
-    .section-title {
-      font-weight: 600;
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
 
     label {
       font-weight: 500;
@@ -143,9 +234,38 @@ export default {
       margin-bottom: 5px;
     }
 
+    & + .input-field {
+      margin-top: 10px;
+    }
+
     .error-message {
       font-size: 12px;
       color: @error-color;
+    }
+  }
+
+  .adress-container {
+    display: flex;
+    margin-top: 10px;
+
+    .input-field {
+      margin: 0;
+      width: 100%;
+
+      & + .input-field {
+        width: 30%;
+        margin-left: 15px;
+      }
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+
+    .section-title {
+      font-weight: 600;
+      font-size: 22px;
+      margin-bottom: 20px;
     }
 
     .adress {
@@ -173,6 +293,19 @@ export default {
       label {
         padding-left: 10px;
         margin: 0px;
+      }
+    }
+  }
+
+  button {
+    margin: 30px auto;
+  }
+
+  .modal-content {
+    button {
+      text-align: center;
+      & + button {
+        margin-left: 15px;
       }
     }
   }
