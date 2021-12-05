@@ -62,9 +62,9 @@
             <label for="delivery">Delivery</label>
           </div>
         </div>
-        <a @click="onShowAddressModal" v-if="isDeliveryType"
-          >Adicionar Endereço</a
-        >
+        <a @click="onShowAddressModal" v-if="isDeliveryType">{{
+          adressButtonLabel
+        }}</a>
       </div>
     </form>
     <button class="primary-button" @click="orderItens">
@@ -236,6 +236,17 @@ export default {
     isDeliveryType() {
       return this.deliveryType === "delivery";
     },
+    hasAdressInfo() {
+      return (
+        this.formData.cep.value ||
+        this.formData.city.value ||
+        this.formData.street.value ||
+        this.formData.number.value
+      );
+    },
+    adressButtonLabel() {
+      return this.hasAdressInfo ? "Editar endereço" : "Adicionar Endereço";
+    },
   },
   methods: {
     triggerValidations() {
@@ -263,7 +274,7 @@ export default {
       this.showAdressModal = false;
     },
   },
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -329,6 +340,9 @@ export default {
         font-size: 12px;
         text-decoration: underline;
         cursor: pointer;
+        display: block;
+        margin: 15px 0;
+        width: fit-content;
       }
     }
 
