@@ -62,6 +62,12 @@
             <label for="delivery">Delivery</label>
           </div>
         </div>
+        <!-- Adress Card-->
+        <div class="adress-card" v-if="isDeliveryType && savedAdress">
+          <p>{{ formData.city.value }} - {{ formData.cep.value }}</p>
+          <p>{{ formData.street.value }}, {{ formData.number.value }}</p>
+        </div>
+        <!-- a Link-->
         <a @click="onShowAddressModal" v-if="isDeliveryType">{{
           adressButtonLabel
         }}</a>
@@ -139,7 +145,7 @@
         <button class="secondary-button" @click="hideAdressModal">
           Cancelar
         </button>
-        <button class="primary-button" @click="validateAdressForm">
+        <button class="primary-button" @click="validateAddressForm">
           Adicionar
         </button>
       </div>
@@ -221,6 +227,7 @@ export default {
       },
       showAdressModal: false,
       deliveryType: "store",
+      savedAdress: false
     };
   },
   computed: {
@@ -268,13 +275,14 @@ export default {
     hideAdressModal() {
       this.showAdressModal = false;
     },
-    validateAdressForm() {
+    validateAddressForm() {
       this.triggerAdressFormValidations();
-      if (this.isAdressFormValid) return;
+      if (!this.isAdressFormValid) return;
+      this.savedAdress = true;
       this.showAdressModal = false;
     },
   },
-}
+};
 </script>
 
 <style lang="less" scoped>
@@ -344,6 +352,20 @@ export default {
         margin: 15px 0;
         width: fit-content;
       }
+
+      .adress-card {
+        border-radius: 8px;
+        border: 1px solid @dark-grey;
+        padding: 10px;
+        margin: 5px 0;
+        width: fit-content;
+
+        p {
+          font-weight: normal;
+          font-size: 14px;
+          color: @dark-grey;
+        }
+      }
     }
 
     .radio-options {
@@ -368,6 +390,7 @@ export default {
   .modal-content {
     button {
       text-align: center;
+      cursor: pointer;
       & + button {
         margin-left: 15px;
       }
