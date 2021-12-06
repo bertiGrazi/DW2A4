@@ -119,14 +119,14 @@
         {
             "id": "0008",
             "name": "Casquinha mista",
-            "description": "Casquinha mista de creme e chocolate",
+            "description": "Casquinha especial da casa com sabor de chocolate e baunilha",
             "price": 4.5,
             "offer": false
         },
         {
             "id": "0009",
             "name": "Sorvete de morango",
-            "description": "Sorvete de morango na casquinha",
+            "description": "Sorvete de morango com casquinha especial da casa",
             "price": 7.90,
             "offer": true
         },
@@ -139,10 +139,10 @@
         },
         {
             "id": "0026",
-            "name": "Sorvete de baunilha",
-            "description": "Sorvete de baunilha com casquinha especial da casa",
-            "price": 7.90,
-            "offer": true
+            "name": "Sorvete de pistache",
+            "description": "Sorvete de pistache com casquinha especial da casa",
+            "price": 10.90,
+            "offer": false
         }
     ],
     "drinks": [
@@ -159,6 +159,27 @@
             "description": "Lata 350ml",
             "price": 4.5,
             "offer": false
+        },
+        {
+            "id": "0027",
+            "name": "Cerveja Lata",
+            "description": "Lata 350ml",
+            "price": 5.5,
+            "offer": false
+        },
+        {
+            "id": "0028",
+            "name": "Água mineral",
+            "description": "Garrafa 500ml",
+            "price": 7.5,
+            "offer": true
+        },
+        {
+            "id": "0029",
+            "name": "Suco de laranja",
+            "description": "Garrafa 500ml",
+            "price": 3.5,
+            "offer": false
         }
     ],
     "combo": [
@@ -172,9 +193,23 @@
         {
             "id": "0014",
             "name": "Combo 2",
-            "description": "2 pizzas",
+            "description": "2 pizzas de mussarela",
             "price": 45.0,
             "offer": false
+        },
+        {
+            "id": "0030",
+            "name": "Combo 3",
+            "description": "2 pizzas de 4 queijos + um suco de laranja de 500ml + 2 casquinhas mistas",
+            "price": 55.0,
+            "offer": true
+        },
+        {
+            "id": "0031",
+            "name": "Combo 4",
+            "description": "2 Shows Burgue + Cerveja em lata de 350ml",
+            "price": 21.0,
+            "offer": true
         }
     ]
 }
