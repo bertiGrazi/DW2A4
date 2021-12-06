@@ -127,8 +127,8 @@
             "id": "0009",
             "name": "Sorvete de morango",
             "description": "Sorvete de morango na casquinha",
-            "price": 6.0,
-            "offer": false
+            "price": 7.90,
+            "offer": true
         },
         {
             "id": "0010",
@@ -136,6 +136,13 @@
             "description": "Milskahe de chocolate",
             "price": 10.0,
             "offer": false
+        },
+        {
+            "id": "0026",
+            "name": "Sorvete de baunilha",
+            "description": "Sorvete de baunilha com casquinha especial da casa",
+            "price": 7.90,
+            "offer": true
         }
     ],
     "drinks": [

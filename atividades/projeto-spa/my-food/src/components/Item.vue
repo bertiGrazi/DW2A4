@@ -64,7 +64,7 @@ export default {
   &--img {
     display: block;
     margin: auto;
-    width: 90%;
+    width: 70%;
   }
   &--tag {
     position: absolute;
