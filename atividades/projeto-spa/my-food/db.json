@@ -143,6 +143,34 @@
             "description": "Sorvete de pistache com casquinha especial da casa",
             "price": 10.90,
             "offer": false
+        },
+        {
+            "id": "0032",
+            "name": "Milshake de morango",
+            "description": "Milshake de morango",
+            "price": 10.90,
+            "offer": false
+        },
+        {
+            "id": "0033",
+            "name": "Açai",
+            "description": "Açai, granola, banana e leite ninho",
+            "price": 10.90,
+            "offer": true
+        },
+        {
+            "id": "0034",
+            "name": "Sundae",
+            "description": "Sundae de morango, chocolate ou baunilha",
+            "price": 6.90,
+            "offer": false
+        },
+        {
+            "id": "0035",
+            "name": "Brigadeirão",
+            "description": "Brigadeirão",
+            "price": 10.90,
+            "offer": true
         }
     ],
     "drinks": [
