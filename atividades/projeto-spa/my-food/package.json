@@ -5,12 +5,16 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "postinstall": "npm run build",
+    "start":"node server.js",
+    "install:clean":"run -rf node_modules/ && rm -rf package-lock.json && npm install && npm run dev"    
   },
   "dependencies": {
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "es6-promise": "^4.2.8",
+    "express": "^4.17.1",
     "feather-icons": "^4.28.0",
     "v-mask": "^2.3.0",
     "vue": "^2.6.11",
