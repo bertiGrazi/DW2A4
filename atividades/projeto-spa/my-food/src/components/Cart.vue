@@ -112,6 +112,7 @@ export default {
     opacity: 0;
     transform: translateX(-30px);
   }
+  
   @media @small-desktops {
     width: 100%;
     max-width: 800px;
