@@ -28,7 +28,7 @@
 </table>
 
 ## ✍ Sobre o Projeto: 
-O projeto seguinte foi desenvolvido em Vue.js e tem o objetivo de mostrar um aplicação de um restaurante chamada <b>My-Food</b> na qual o cliente consegue olhar o menu do restaurante, adicionar no carrinho e finalizar a solicitação desse pedido tendo a opção de fazer pedir para retirar na loja ou pedir delivery. 
+O projeto seguinte foi desenvolvido em Vue.js e tem o objetivo de mostrar um aplicação de um restaurante chamada <b>My-Food</b> na qual o cliente consegue olhar o menu do restaurante, adicionar no carrinho e finalizar a solicitação desse pedido tendo a opção de retirar na loja ou delivery. 
 
 ## 💼 Tecnologias utilizadas
 Para o desenvolvimento deste site utilizei as seguintes tecnologias:
